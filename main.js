@@ -4,9 +4,18 @@
 
 
 document.getElementById("search-btn").addEventListener('click',()=>{
-    document.getElementById("fancy-results").style.display='block';
+    
 
-    fetch (`https://api.lyrics.ovh/suggest/${document.getElementById('input-box').value}`)
+    if(document.getElementById("input-box").value===""){
+        alert("you should write a proper song name")
+
+    }
+
+    else{
+
+        document.getElementById("fancy-results").style.display='block';
+
+        fetch (`https://api.lyrics.ovh/suggest/${document.getElementById('input-box').value}`)
 
     .then (res=> res.json())
     .then (data=>{
@@ -40,6 +49,10 @@ document.getElementById("search-btn").addEventListener('click',()=>{
 
         }
     }) 
+
+    }
+
+    
 
    
 
